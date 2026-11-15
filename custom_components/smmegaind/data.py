@@ -3,7 +3,7 @@ LINK="https://sequentmicrosystems.com/products/industrial-raspberry-pi?variant=4
 
 import megaind
 API = megaind
-DOMAIN = "SMmegaind"
+DOMAIN = "smmegaind"
 NAME_PREFIX = "smmi"
 SM_MAP = {
     "button": {
@@ -26,7 +26,7 @@ SM_MAP = {
                 "chan_no": 4,
                 "uom": "V",
                 "com": {
-                    "get": "getpmIn",
+                    "get": "getpm10In",
                 },
         },
         "4_20_i_in": {
@@ -57,7 +57,7 @@ SM_MAP = {
                 "chan_no": 16,
                 "uom": "°C",
                 "com": {
-                    "get": "owdGetTemp",
+                    "get": "owbGetTemp",
                 },
         },
     },
