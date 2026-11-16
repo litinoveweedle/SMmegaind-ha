@@ -1,6 +1,6 @@
 """Shared button platform for the card."""
 
-from sequent_ha_common.button import async_setup_entry as shared_setup
+from SMcommonHA.button import async_setup_entry as shared_setup
 
 from . import CARD
 
