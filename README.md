@@ -151,6 +151,17 @@ Entity options:
 - `chan_range: "start..end"` (specify inclusive channel range)
 - `update_interval: seconds` (specify the update interval for `sensor` and `binary_sensor`, default 30s)
 
+## Optional capabilities
+
+Select these entities under **Configure**; existing entity selections are unchanged.
+
+Optional entities include `opto_edge_1..4`, `input_range_1..4`, `opto_frequency_1..4`, `rasp_volt_1`, `power_volt_1`, `cpu_temp_1`, `owb_count_1`, `owb_scan_1`, and `rtc_1`. The RTC uses UTC and is never synchronized automatically. One-Wire scan can change sensor indices.
+
+Watchdog entities are `watchdog_reload_1`, `watchdog_count_1`, `watchdog_period_1`,
+`watchdog_initial_1`, and `watchdog_off_1`.
+
+Watchdog entities are opt-in. Reloading may enable the watchdog; without a reliable reload automation it can power-cycle the Raspberry Pi. Set a suitable initial period for boot time. The integration does not reload it automatically.
+
 ## Testing
 
 With Python 3.14, install `homeassistant==2026.11.1`,

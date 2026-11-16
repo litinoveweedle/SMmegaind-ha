@@ -1,8 +1,8 @@
 FULL_NAME="Industrial Automation"
 LINK="https://sequentmicrosystems.com/products/industrial-raspberry-pi?variant=46030010810620"
 
-import megaind
-API = megaind
+from . import driver_adapter
+API = driver_adapter
 DOMAIN = "smmegaind"
 NAME_PREFIX = "smmi"
 SM_MAP = {
@@ -12,9 +12,66 @@ SM_MAP = {
             "com": {
                 "set": "rstOptoCount",
             },
-        }
+        },
+        "watchdog_reload": {
+            "chan_no": 1,
+            "optional": True,
+            "com": {"set": "wdtReload"},
+        },
+        "owb_scan": {
+            "chan_no": 1,
+            "optional": True,
+            "com": {"set": "owbScan"},
+        },
+    },
+    "select": {
+        "opto_edge": {
+            "chan_no": 4,
+            "optional": True,
+            "com": {"get": "get_opto_edge", "set": "set_opto_edge"},
+            "option_map": {"None": 0, "Rising": 1, "Falling": 2, "Both": 3},
+        },
+        "input_range": {
+            "chan_no": 4,
+            "optional": True,
+            "com": {"get": "getUinRange", "set": "setUinRange"},
+            "option_map": {"0 to 10 V": 0, "-10 to 10 V": 1},
+        },
+    },
+    "datetime": {
+        "rtc": {
+            "chan_no": 1,
+            "optional": True,
+            "com": {"get": "rtcGet", "set": "rtcSet"},
+        },
     },
     "sensor":  {
+        "opto_frequency": {
+            "chan_no": 4,
+            "optional": True,
+            "uom": "Hz",
+            "com": {"get": "getOptoFrequency"},
+        },
+        "rasp_volt": {
+            "chan_no": 1, "optional": True, "uom": "V",
+            "com": {"get": "getRaspVolt"},
+        },
+        "power_volt": {
+            "chan_no": 1, "optional": True, "uom": "V",
+            "com": {"get": "getPowerVolt"},
+        },
+        "cpu_temp": {
+            "chan_no": 1, "optional": True, "uom": "°C",
+            "com": {"get": "getCpuTemp"},
+        },
+        "watchdog_count": {
+            "chan_no": 1, "optional": True,
+            "com": {"get": "wdtGetResetCount"},
+        },
+        "owb_count": {
+            "chan_no": 1, "optional": True,
+            "com": {"get": "owbGetSensorNo"},
+        },
         "0_10_u_in": {
                 "chan_no": 4,
                 "uom": "V",
@@ -71,6 +128,21 @@ SM_MAP = {
         }
     },
     "number": {
+        "watchdog_period": {
+            "chan_no": 1, "optional": True, "uom": "s",
+            "min_value": 10, "max_value": 65000, "step": 1,
+            "com": {"get": "wdtGetPeriod", "set": "wdtSetPeriod"},
+        },
+        "watchdog_initial": {
+            "chan_no": 1, "optional": True, "uom": "s",
+            "min_value": 10, "max_value": 64999, "step": 1,
+            "com": {"get": "wdtGetDefaultPeriod", "set": "wdtSetDefaultPeriod"},
+        },
+        "watchdog_off": {
+            "chan_no": 1, "optional": True, "uom": "s",
+            "min_value": 10, "max_value": 4147200, "step": 1,
+            "com": {"get": "wdtGetOffInterval", "set": "wdtSetOffInterval"},
+        },
         "0_10_u_out": {
                 "chan_no": 4,
                 "uom": "V",
