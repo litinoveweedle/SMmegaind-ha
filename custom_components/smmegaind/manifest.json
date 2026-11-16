@@ -1,18 +1,20 @@
 {
-	"domain": "smmegaind",
-	"name": "Sequent Microsystems Industrial Automation Integration",
-	"version": "1.0.0",
-	"integration_type": "device",
-	"documentation": "https://github.com/SequentMicrosystems/SMmegaind-ha",
-	"issue_tracker": "https://github.com/SequentMicrosystems/SMmegaind-ha",
-	"dependencies": [],
-	"after_dependencies": [],
-	"codeownders": [
-		"3lv"
-	],
-	"config_flow": true,
-	"requirements": [
-		"SMmegaind>=1.0.7",
-		"SMcommonHA>=0.0.2"
-	]
+  "domain": "smmegaind",
+  "name": "Sequent Microsystems Industrial Automation Integration",
+  "after_dependencies": [],
+  "codeowners": [
+    "@3lv",
+    "litinoveweedle"
+  ],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/SequentMicrosystems/SMmegaind-ha",
+  "integration_type": "device",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/SequentMicrosystems/SMmegaind-ha",
+  "requirements": [
+    "SMmegaind>=1.0.7",
+    "SMcommonHA>=0.0.3"
+  ],
+  "version": "1.0.0"
 }
