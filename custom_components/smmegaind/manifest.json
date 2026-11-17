@@ -1,14 +1,15 @@
 {
   "domain": "smmegaind",
-  "name": "Sequent Microsystems Industrial Automation Integration",
-  "after_dependencies": [],
+  "name": "Sequent Microsystems Industrial Automation Card",
+  "categories": [
+    "diy_makers.boards_hardware"
+  ],
   "codeowners": ["@3lv", "@litinoveweedle"],
   "config_flow": true,
-  "dependencies": [],
   "documentation": "https://github.com/SequentMicrosystems/SMmegaind-ha",
   "integration_type": "device",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/SequentMicrosystems/SMmegaind-ha",
+  "issue_tracker": "https://github.com/SequentMicrosystems/SMmegaind-ha/issues",
   "requirements": ["SMmegaind>=1.0.7", "SMcommonHA>=0.0.3"],
   "version": "1.0.0"
 }
